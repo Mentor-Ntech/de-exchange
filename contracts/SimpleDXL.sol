@@ -14,6 +14,8 @@ contract SimpleDEX {
         usdcAddress = _usdcAddress;
     }
 
+
+
     function tradeUSDT(uint256 amount) external {
         IERC20(usdtAddress).transferFrom(msg.sender, address(this), amount);
         IERC20(tokenAddress).transfer(msg.sender, amount);
@@ -22,6 +24,10 @@ contract SimpleDEX {
     function tradeUSDC(uint256 amount) external {
         IERC20(usdcAddress).transferFrom(msg.sender, address(this), amount);
         IERC20(tokenAddress).transfer(msg.sender, amount);
+    }
+
+    function approval(_address ) {
+        
     }
 
     function withdrawTokens(address token, uint256 amount) external {
