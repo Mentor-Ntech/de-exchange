@@ -17,6 +17,9 @@ interface ERC20Interface {
 }
 
 // Actual token contact
-  abstract contract MuhminNodeToken  is ERC20Interface {
- 
+  abstract contract QuickNodeToken  is ERC20Interface {
+   function allowance(address owner, address spender) public view returns(uint remaining) {
+    return allowed[owner][spender];
+   }
+
  }
