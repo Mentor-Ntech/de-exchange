@@ -17,7 +17,16 @@ interface ERC20Interface {
 }
 
 // Actual token contact
-  abstract contract QuickNodeToken is ERC20Interface {
+
+  abstract contract QuickNodeToken  is ERC20Interface {
+    string public symbol;
+    string public name;
+    uint8 public decimals;
+    uint public _totalSupply;
+
+  mapping(address => uint) balances;
+  mapping(address => mapping(address => uint)) allowed;
+  
     function transfer(address recipient, uint amount) public returns(bool success) {
     balances[msg.sender] = balances[msg.sender] - amount;
     balances[recipient] = balances[recipient] + amount;
@@ -30,4 +39,5 @@ interface ERC20Interface {
     emit Approval(msg.sender, spender, amount);
     return true;
   }
+  
  }
