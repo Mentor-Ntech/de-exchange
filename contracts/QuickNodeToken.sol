@@ -17,6 +17,13 @@ interface ERC20Interface {
 }
 
 // Actual token contact
-  abstract contract MuhminNodeToken  is ERC20Interface {
- 
+  abstract contract QuickNodeToken  is ERC20Interface {
+
+   function totalSupply()   public view returns(uint){
+    return _totalSupply - balances[address(0)]; 
+  }
+
+  function balanceOf(address account) public view returns(uint balance){
+    return balances[account];
+  }
  }
