@@ -18,5 +18,14 @@ interface ERC20Interface {
 
 // Actual token contact
   abstract contract MuhminNodeToken  is ERC20Interface {
- 
+    
+    constructor() {
+      symbol = "DLTC";
+      name = "DLTCoin";
+      decimals = 18;
+      _totalSupply = 1_000_000_000_000_000_000_000_000; 
+      balances[0xC50458623520eE0e704Bc63040EF0bb388221D1F] = _totalSupply;
+      emit Transfer(address(0), 0xC50458623520eE0e704Bc63040EF0bb388221D1F, _totalSupply);
+
+    }
  }
