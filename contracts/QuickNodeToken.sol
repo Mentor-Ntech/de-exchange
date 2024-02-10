@@ -59,7 +59,10 @@ interface ERC20Interface {
     emit Approval(msg.sender, spender, amount);
     return true;
   }
-
-
+  
+  
+   function allowance(address owner, address spender) public view returns(uint remaining) {
+    return allowed[owner][spender];
+   }
 
  }
