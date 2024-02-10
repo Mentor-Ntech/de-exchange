@@ -17,7 +17,50 @@ interface ERC20Interface {
 }
 
 // Actual token contact
+
   abstract contract QuickNodeToken  is ERC20Interface {
+    string public symbol;
+    string public name;
+    uint8 public decimals;
+    uint public _totalSupply;
+
+  mapping(address => uint) balances;
+  mapping(address => mapping(address => uint)) allowed;
+    
+     constructor() {
+      symbol = "DLTC";
+      name = "DLTCoin";
+      decimals = 18;
+      _totalSupply = 1_000_000_000_000_000_000_000_000; 
+      balances[0xC50458623520eE0e704Bc63040EF0bb388221D1F] = _totalSupply;
+      emit Transfer(address(0), 0xC50458623520eE0e704Bc63040EF0bb388221D1F, _totalSupply);
+
+    }
+    
+    
+   function totalSupply()   public view returns(uint){
+    return _totalSupply - balances[address(0)]; 
+  }
+
+  function balanceOf(address account) public view returns(uint balance){
+    return balances[account];
+  }
+
+
+    function transfer(address recipient, uint amount) public returns(bool success) {
+    balances[msg.sender] = balances[msg.sender] - amount;
+    balances[recipient] = balances[recipient] + amount;
+    emit Transfer(msg.sender, recipient, amount);
+    return true;
+  }
+
+  function  approve(address spender, uint amount) public returns(bool success) {
+    allowed[msg.sender][spender]  = amount;
+    emit Approval(msg.sender, spender, amount);
+    return true;
+  }
+  
+  
    function allowance(address owner, address spender) public view returns(uint remaining) {
     return allowed[owner][spender];
    }
