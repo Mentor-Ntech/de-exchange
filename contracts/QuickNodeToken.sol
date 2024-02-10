@@ -18,9 +18,18 @@ interface ERC20Interface {
 
 // Actual token contact
 
-  abstract contract QuickNodeToken is ERC20Interface {
   
-  constructor() {
+ 
+  abstract contract QuickNodeToken  is ERC20Interface {
+    string public symbol;
+    string public name;
+    uint8 public decimals;
+    uint public _totalSupply;
+
+  mapping(address => uint) balances;
+  mapping(address => mapping(address => uint)) allowed;
+    
+     constructor() {
       symbol = "DLTC";
       name = "DLTCoin";
       decimals = 18;
@@ -29,6 +38,7 @@ interface ERC20Interface {
       emit Transfer(address(0), 0xC50458623520eE0e704Bc63040EF0bb388221D1F, _totalSupply);
 
     }
+
 
     function transfer(address recipient, uint amount) public returns(bool success) {
     balances[msg.sender] = balances[msg.sender] - amount;
