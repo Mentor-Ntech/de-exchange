@@ -17,9 +17,10 @@ interface ERC20Interface {
 }
 
 // Actual token contact
-  abstract contract MuhminNodeToken  is ERC20Interface {
-    
-    constructor() {
+
+  abstract contract QuickNodeToken is ERC20Interface {
+  
+  constructor() {
       symbol = "DLTC";
       name = "DLTCoin";
       decimals = 18;
@@ -28,4 +29,18 @@ interface ERC20Interface {
       emit Transfer(address(0), 0xC50458623520eE0e704Bc63040EF0bb388221D1F, _totalSupply);
 
     }
+
+    function transfer(address recipient, uint amount) public returns(bool success) {
+    balances[msg.sender] = balances[msg.sender] - amount;
+    balances[recipient] = balances[recipient] + amount;
+    emit Transfer(msg.sender, recipient, amount);
+    return true;
+  }
+
+  function  approve(address spender, uint amount) public returns(bool success) {
+    allowed[msg.sender][spender]  = amount;
+    emit Approval(msg.sender, spender, amount);
+    return true;
+  }
+
  }
