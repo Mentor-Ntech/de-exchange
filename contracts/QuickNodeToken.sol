@@ -17,5 +17,5 @@ interface ERC20Interface {
 
 // Actual token contact
 abstract contract QuickNodeToken  is ERC20Interface {
-   
+   string public symbol;
  }
