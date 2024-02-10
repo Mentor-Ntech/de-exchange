@@ -18,8 +18,6 @@ interface ERC20Interface {
 
 // Actual token contact
 
-  
- 
   abstract contract QuickNodeToken  is ERC20Interface {
     string public symbol;
     string public name;
@@ -38,6 +36,15 @@ interface ERC20Interface {
       emit Transfer(address(0), 0xC50458623520eE0e704Bc63040EF0bb388221D1F, _totalSupply);
 
     }
+    
+    
+   function totalSupply()   public view returns(uint){
+    return _totalSupply - balances[address(0)]; 
+  }
+
+  function balanceOf(address account) public view returns(uint balance){
+    return balances[account];
+  }
 
 
     function transfer(address recipient, uint amount) public returns(bool success) {
@@ -52,5 +59,7 @@ interface ERC20Interface {
     emit Approval(msg.sender, spender, amount);
     return true;
   }
+
+
 
  }
