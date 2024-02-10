@@ -27,7 +27,8 @@
     "vite": "^5.1.0"
   },
   "main": "index.js",
-  "repository": "https://github.com/Kenny001-spec/de-exchange.git",
-  "author": "Abubakar kehinde <abubakarkehinde88@gmail.com>",
+
+  "repository": "https://github.com/Mentor-Ntech/de-exchange.git",
+  "author": "Mentor-Ntech <102734739+Mentor-Ntech@users.noreply.github.com>",
   "license": "MIT"
 }

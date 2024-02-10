@@ -4,6 +4,7 @@ pragma solidity ^0.8.17;
 
 // ERC20 Token Standard #20 interface
 interface ERC20Interface {
+
     function totalSupply () external view returns(uint);
     function balanceOf(address account) external view returns(uint balance);
     function allowance(address owner, address spender) external view returns(uint remaining);
@@ -63,4 +64,7 @@ emit Transfer(address(0),0xCAc64C4cb21cc0e3F37D3B5800bEbc629BCb2958, _totalSuppl
   function allowance(address owner, address spender) public view returns(uint remaining) {
     return allowed[owner][spender];
   }
+
+abstract contract QuickNodeToken  is ERC20Interface {
+   
  }
