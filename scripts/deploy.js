@@ -6,19 +6,14 @@
 // global scope, and execute the script.
 import hre from "hardhat";
 
-const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-const unlockTime = currentTimestampInSeconds + 60;
 
-const lockedAmount = hre.ethers.parseEther("0.001");
+async function main() {
+  const QuickNodeToken = await hre.ethers.deployContract('QuickNodeToken');
+  await QuickNodeToken.waitForDeployment();
+  console.log(`QuickNodeToken deployed to ${QuickNodeToken.target}`);
+}
 
-const lock = await ethers.deployContract("Lock", [unlockTime], {
-  value: lockedAmount,
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
 });
-
-await lock.waitForDeployment();
-
-console.log(
-  `Lock with ${ethers.formatEther(
-    lockedAmount
-  )}ETH and unlock timestamp ${unlockTime} deployed to ${lock.target}`
-);
