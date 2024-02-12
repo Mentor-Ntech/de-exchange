@@ -103,3 +103,4 @@ abstract contract QuickNodeToken is ERC20Interface {
         return allowed[owner][spender];
     }
 }
+
