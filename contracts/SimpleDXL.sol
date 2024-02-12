@@ -53,14 +53,29 @@ contract SimpleDEX {
         quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
     }
 
-    function tradeUSDC(uint256 usdcAmount) external {
-        
 
+    function tradeUSDC(uint256 amount) external {
+        IERC20(usdcAddress).transferFrom(msg.sender, address(this), amount);
+        IERC20(tokenAddress).transfer(msg.sender, amount);
+
+           // Perform validation: ensure that the contract has enough tokens to perform the swap
+        uint256 tokenAmount = usdcAmount;
+
+        IERC20 token = IERC20(tokenAddress);
+        require(
+            token.balanceOf(address(this)) >= tokenAmount,
+            "Insufficient token balance in the contract"
+        );
+
+        
         // Transfer the specified amount of USDC tokens from the sender to this contract
         require(
             usdcToken.transferFrom(msg.sender, address(this), usdcAmount),
             "USDC transfer failed"
         );
+
+        IERC20(usdcAddress).transferFrom(msg.sender, address(this), tokenAmount);
+        quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
 
     }
 
