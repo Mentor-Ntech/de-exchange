@@ -82,9 +82,6 @@ contract SimpleDEX {
             "Insufficient token balance in the contract"
         );
         
-
-        
-
         IERC20(usdcAddress).transferFrom(msg.sender, address(this), tokenAmount);
         quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
      }
