@@ -6,6 +6,7 @@ const ARBITRUM_MAINNET_TEMPORARY_PRIVATE_KEY = '7ab481906471300a3982c4fd072e1c78
 
 import('hardhat/config.js').HardhatUserConfig 
 module.exports = {
+
   solidity: {
     compilers: [
       {

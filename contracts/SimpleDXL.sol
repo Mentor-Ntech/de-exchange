@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./QuickNodeToken.sol";
@@ -54,7 +54,22 @@ contract SimpleDEX {
     }
 
 
-    function tradeUSDC(uint256 amount) external {
+    function tradeUSDC(uint256 usdcAmount) external {
+        require(usdcAmount > 0, "invalid usdc amount");
+
+        // Ensure that the sender has approved this contract to spend their USDC tokens
+        IERC20 usdcToken = IERC20(usdcAddress);
+        require(
+            usdcToken.allowance(msg.sender, address(this)) >= usdcAmount,
+            "USDC allowance not set"
+        );
+
+        // Transfer the specified amount of USDC tokens from the sender to this contract
+        require(
+            usdcToken.transferFrom(msg.sender, address(this), usdcAmount),
+            "USDC transfer failed"
+        );
+
         IERC20(usdcAddress).transferFrom(msg.sender, address(this), amount);
         IERC20(tokenAddress).transfer(msg.sender, amount);
 
@@ -66,19 +81,18 @@ contract SimpleDEX {
             token.balanceOf(address(this)) >= tokenAmount,
             "Insufficient token balance in the contract"
         );
+        
 
         
-        // Transfer the specified amount of USDC tokens from the sender to this contract
-        require(
-            usdcToken.transferFrom(msg.sender, address(this), usdcAmount),
-            "USDC transfer failed"
-        );
 
         IERC20(usdcAddress).transferFrom(msg.sender, address(this), tokenAmount);
         quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
+     }
 
-    }
 
+    
+
+        
     function withdrawTokens(address token, uint256 amount) external {
         require(
             msg.sender == tokenAddress,
