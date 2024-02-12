@@ -63,9 +63,6 @@ contract SimpleDEX {
     function tradeUSDC(uint256 usdcAmount) external {
         require(usdcAmount > 0, "invalid usdc amount");
 
-        IERC20(usdcAddress).transferFrom(msg.sender, address(this), usdcAmount);
-        IERC20(tokenAddress).transfer(msg.sender, usdcAmount);
-
         // Ensure that the sender has approved this contract to spend their USDC tokens
         IERC20 usdcToken = IERC20(usdcAddress);
         require(
