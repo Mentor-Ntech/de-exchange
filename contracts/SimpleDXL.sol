@@ -23,11 +23,11 @@ contract SimpleDEX {
      function tradeUSDC(uint256 usdcAmount) external {
         require(usdcAmount > 0, "invalid usdc amount");
 
-        // Ensure that the sender has approved this contract to spend their USDT tokens
-        IERC20 usdcToken = IERC20(usdtAddress);
+        // Ensure that the sender has approved this contract to spend their USDC tokens
+        IERC20 usdcToken = IERC20(usdcAddress);
         require(
             usdcToken.allowance(msg.sender, address(this)) >= usdcAmount,
-            "USDT allowance not set"
+            "USDC allowance not set"
         );
      }
     function withdrawTokens(address token, uint256 amount) external {
