@@ -2,30 +2,73 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "./QuickNodeToken.sol";
 
 contract SimpleDEX {
     address public tokenAddress;
     address public usdtAddress;
     address public usdcAddress;
 
-    constructor(address _tokenAddress, address _usdtAddress, address _usdcAddress) {
+    QuickNodeToken public quickNodeTokenInstance;
+
+    constructor(
+        address _tokenAddress,
+        address _usdtAddress,
+        address _usdcAddress,
+        address _quickNodeTokenAddress
+    ) {
         tokenAddress = _tokenAddress;
         usdtAddress = _usdtAddress;
         usdcAddress = _usdcAddress;
+
+        quickNodeTokenInstance = QuickNodeToken(_quickNodeTokenAddress);
     }
 
-    function tradeUSDT(uint256 amount) external {
-        IERC20(usdtAddress).transferFrom(msg.sender, address(this), amount);
-        IERC20(tokenAddress).transfer(msg.sender, amount);
+    function tradeUSDT(uint256 usdtAmount) external {
+        require(usdtAmount > 0, "invalid usdt amount");
+
+        // Ensure that the sender has approved this contract to spend their USDT tokens
+        IERC20 usdtToken = IERC20(usdtAddress);
+        require(
+            usdtToken.allowance(msg.sender, address(this)) >= usdtAmount,
+            "USDT allowance not set"
+        );
+
+        // Transfer the specified amount of USDT tokens from the sender to this contract
+        require(
+            usdtToken.transferFrom(msg.sender, address(this), usdtAmount),
+            "USDT transfer failed"
+        );
+
+        // Perform validation: ensure that the contract has enough tokens to perform the swap
+        uint256 tokenAmount = usdtAmount;
+
+        IERC20 token = IERC20(tokenAddress);
+        require(
+            token.balanceOf(address(this)) >= tokenAmount,
+            "Insufficient token balance in the contract"
+        );
+
+        IERC20(usdtAddress).transferFrom(msg.sender, address(this), tokenAmount);
+        quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
     }
 
-    function tradeUSDC(uint256 amount) external {
-        IERC20(usdcAddress).transferFrom(msg.sender, address(this), amount);
-        IERC20(tokenAddress).transfer(msg.sender, amount);
+    function tradeUSDC(uint256 usdcAmount) external {
+        
+
+        // Transfer the specified amount of USDC tokens from the sender to this contract
+        require(
+            usdcToken.transferFrom(msg.sender, address(this), usdcAmount),
+            "USDC transfer failed"
+        );
+
     }
 
     function withdrawTokens(address token, uint256 amount) external {
-        require(msg.sender == tokenAddress, "Only the token contract can withdraw tokens");
+        require(
+            msg.sender == tokenAddress,
+            "Only the token contract can withdraw tokens"
+        );
         IERC20(token).transfer(msg.sender, amount);
     }
 }
