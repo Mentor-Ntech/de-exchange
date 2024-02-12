@@ -25,11 +25,10 @@ contract SimpleDEX {
     }
 
     function tradeUSDT(uint256 usdtAmount) external {
-                require(usdtAmount > 0, "invalid usdt amount");
+        require(usdtAmount > 0, "invalid usdt amount");
 
         IERC20(usdtAddress).transferFrom(msg.sender, address(this), usdtAmount);
         IERC20(tokenAddress).transfer(msg.sender, usdtAmount);
-        
 
         // Ensure that the sender has approved this contract to spend their USDT tokens
         IERC20 usdtToken = IERC20(usdtAddress);
@@ -44,7 +43,6 @@ contract SimpleDEX {
             "USDT transfer failed"
         );
 
-
         // Perform validation: ensure that the contract has enough tokens to perform the swap
         uint256 tokenAmount = usdtAmount;
 
@@ -54,13 +52,19 @@ contract SimpleDEX {
             "Insufficient token balance in the contract"
         );
 
-        IERC20(usdtAddress).transferFrom(msg.sender, address(this), tokenAmount);
+        IERC20(usdtAddress).transferFrom(
+            msg.sender,
+            address(this),
+            tokenAmount
+        );
         quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
     }
 
-
     function tradeUSDC(uint256 usdcAmount) external {
         require(usdcAmount > 0, "invalid usdc amount");
+
+        IERC20(usdcAddress).transferFrom(msg.sender, address(this), usdcAmount);
+        IERC20(tokenAddress).transfer(msg.sender, usdcAmount);
 
         // Ensure that the sender has approved this contract to spend their USDC tokens
         IERC20 usdcToken = IERC20(usdcAddress);
@@ -75,10 +79,7 @@ contract SimpleDEX {
             "USDC transfer failed"
         );
 
-        IERC20(usdcAddress).transferFrom(msg.sender, address(this), amount);
-        IERC20(tokenAddress).transfer(msg.sender, amount);
-
-           // Perform validation: ensure that the contract has enough tokens to perform the swap
+        // Perform validation: ensure that the contract has enough tokens to perform the swap
         uint256 tokenAmount = usdcAmount;
 
         IERC20 token = IERC20(tokenAddress);
@@ -86,15 +87,15 @@ contract SimpleDEX {
             token.balanceOf(address(this)) >= tokenAmount,
             "Insufficient token balance in the contract"
         );
-        
-        IERC20(usdcAddress).transferFrom(msg.sender, address(this), tokenAmount);
+
+        IERC20(usdcAddress).transferFrom(
+            msg.sender,
+            address(this),
+            tokenAmount
+        );
         quickNodeTokenInstance.transfer(msg.sender, tokenAmount);
-     }
+    }
 
-
-    
-
-        
     function withdrawTokens(address token, uint256 amount) external {
         require(
             msg.sender == tokenAddress,
@@ -102,6 +103,4 @@ contract SimpleDEX {
         );
         IERC20(token).transfer(msg.sender, amount);
     }
-
-
 }
