@@ -25,7 +25,11 @@ contract SimpleDEX {
     }
 
     function tradeUSDT(uint256 usdtAmount) external {
-        require(usdtAmount > 0, "invalid usdt amount");
+                require(usdtAmount > 0, "invalid usdt amount");
+
+        IERC20(usdtAddress).transferFrom(msg.sender, address(this), usdtAmount);
+        IERC20(tokenAddress).transfer(msg.sender, usdtAmount);
+        
 
         // Ensure that the sender has approved this contract to spend their USDT tokens
         IERC20 usdtToken = IERC20(usdtAddress);
@@ -97,4 +101,6 @@ contract SimpleDEX {
         );
         IERC20(token).transfer(msg.sender, amount);
     }
+
+
 }
