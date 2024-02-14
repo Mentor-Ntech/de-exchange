@@ -1,25 +1,49 @@
+// import hre from 'hardhat';
+
+// async function main() {
+//   const quickNodeToken = await hre.ethers.deployContract('QuickNodeToken');
+//   await quickNodeToken.waitForDeployment();
+//   console.log(`Contract deployed to ${quickNodeToken.target}`);
+// }
+
+// main().catch((error) => {
+//   console.error(error);
+//   process.exit(1);
+// });
+
 import hre from "hardhat";
 
+async function deploySimpleDEX(tokenAddress, usdtAddress, usdcAddress, quickNodeTokenAddress) {
+  // Load the contract artifact (factory) for SimpleDEX
+  const SimpleDEX = await hre.ethers.getContractFactory("SimpleDEX");
 
+  // Deploy the SimpleDEX contract, providing constructor arguments
+  const simpleDEXInstance = await SimpleDEX.deploy(
+    tokenAddress,
+    usdtAddress,
+    usdcAddress,
+    quickNodeTokenAddress
+  );
 
-async function deployQuickNodeToken() {
-  const QuickNodeToken = await hre.ethers.deployContract('QuickNodeToken');
-  await QuickNodeToken.waitForDeployment();
-  console.log(`QuickNodeToken deployed to ${QuickNodeToken.target}`);
-}
+  // Wait for the deployment transaction to be mined
+  await simpleDEXInstance.deployed();
 
-async function deployAnotherContract() {
-  const SimpleDEX = await hre.ethers.deployContract('SimpleDEX');
-  await SimpleDEX.waitForDeployment();
-  console.log(`AnotherContract deployed to ${SimpleDEX.target}`);
+  // Log deployment address
+  console.log(`SimpleDEX deployed to ${simpleDEXInstance.address}`);
+
+  // Return the deployed contract instance
+  return simpleDEXInstance;
 }
 
 async function main() {
-  // Deploy QuickNodeToken contract
-  await deployQuickNodeToken();
+  // Assuming you already have the addresses of the token contracts and the QuickNodeToken contract
+  const tokenAddress = "TOKEN_ADDRESS";
+  const usdtAddress = "USDT_ADDRESS";
+  const usdcAddress = "USDC_ADDRESS";
+  const quickNodeTokenAddress = "0xBEe6FFc1E8627F51CcDF0b4399a1e1abc5165f15";
 
-  // Deploy AnotherContract contract
-  await deployAnotherContract();
+  // Deploy SimpleDEX contract
+  await deploySimpleDEX(tokenAddress, usdtAddress, usdcAddress, quickNodeTokenAddress);
 }
 
 main().catch((error) => {
