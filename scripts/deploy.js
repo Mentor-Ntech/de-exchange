@@ -39,7 +39,7 @@ async function main() {
   // Assuming you already have the addresses of the token contracts and the QuickNodeToken contract
   const tokenAddress = "TOKEN_ADDRESS";
   const usdtAddress = "USDT_ADDRESS";
-  const usdcAddress = "USDC_ADDRESS";
+  const usdcAddress = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
   const quickNodeTokenAddress = "0xBEe6FFc1E8627F51CcDF0b4399a1e1abc5165f15";
 
   // Deploy SimpleDEX contract
