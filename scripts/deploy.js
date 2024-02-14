@@ -16,9 +16,9 @@ import hre from 'hardhat';
 
 async function main() {
   console.log("deploying...")
-  const singleSwap = await hre.ethers.deployContract('SingleSwap');
-  await singleSwap.waitForDeployment();
-  console.log(`Contract deployed to ${singleSwap.target}`);
+  const swapContract = await hre.ethers.deployContract('SwapContract');
+  await swapContract.waitForDeployment();
+  console.log(`Contract deployed to ${swapContract.target}`);
 }
 
 main().catch((error) => {
