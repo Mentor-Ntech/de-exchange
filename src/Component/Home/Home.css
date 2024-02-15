@@ -1,14 +1,14 @@
 
 .heroBox {
     background-color: #5c5a5a;
-    height: 70vh;
+    height: 100vh;
     width: 100%;
     /* align-items: flex-end; */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding-bottom: 15rem;
-    padding-left: 1rem;
+    padding: 1rem;
 }
 
 .heroText h1 {
@@ -31,4 +31,47 @@
     font-size: 24px;
     font-weight: 300;
     max-width: 780px;
+}
+
+.iconBox {
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+   
+}
+
+.iconLink {
+    color: white; 
+    margin-right: 10px; 
+    font-size: 24px; 
+    transition: color 0.3s ease; 
+}
+
+.iconLink:hover {
+    color: #93e193;
+}
+
+.dltDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    /* padding: 1rem; */
+    width: 100%;
+    position: relative;
+    
+}
+
+.dltDetails span {
+    font-weight: 700;
+    font-size: 48px;
+    color: #fff;
+}
+
+.dltDetails p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
 }
