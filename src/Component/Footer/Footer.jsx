@@ -10,10 +10,10 @@ const headerFoot = () => {
     <div className="headerFoot">
       <section className="mailing">
       <h1>
-        Start making the world safer, Join the Movement.
+        Start making the world safer, <br /> Join the Movement.
       </h1>
 
-        <button>Join Waitlist😉</button>
+      <button>Join Waitlist&nbsp;😉</button>
       </section>
 
       <div className="footer_box">

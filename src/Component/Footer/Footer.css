@@ -15,7 +15,9 @@
 
 .mailing h1 {
   width: 100%;
-  font-size: 25px;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
   text-wrap: wrap;
 }
 
@@ -85,16 +87,12 @@
     text-align: center;
     width: 100%;
   }
-}
 
-@media only screen and (max-width: 1024px) {
   section {
     font-size: 45px;
     border-radius: 50px;
   }
-}
 
-@media only screen and (max-width: 1024px) {
   .footer_box_social {
     display: flex;
     align-items: center;
