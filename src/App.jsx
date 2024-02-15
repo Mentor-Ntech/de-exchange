@@ -1,15 +1,22 @@
 
+import { Route, Routes } from "react-router-dom";
 
-import './App.css'
-import Navbar from './Component/Navbar/Navbar'
-
+import Home from "./Component/Home/Home";
+import Layout from "./Component/Layout/Layout";
 function App() {
-
   return (
     <>
-      <Navbar/>
+
+      <Routes>
+        <Route path="/" element={<Layout>
+          <Home/>
+        </Layout>} />
+        <Route path="/swap" element={<Layout>
+          <Swap/>
+        </Layout>} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
