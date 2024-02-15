@@ -1,3 +1,4 @@
+
 import Home from "./Component/Home/Home";
 function App() {
  
@@ -6,6 +7,7 @@ function App() {
     <>
 
       <Home />
+
     </>
   );
 }
