@@ -45,13 +45,19 @@
   border-radius: 100px;
 }
 
-.footer_box_social a {
-  color: #001219;
+.footer_button {
+  background-color: white;
+  padding: 5px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  width: 2.5rem;
 }
 
-.footer_box_social a:hover {
-  color: #d9d9d9;
+.footer_button:hover {
+  background-color: #4e54c8;
+  transition: 0.3s;
 }
+
 
 .footer_box_text {
   display: flex;
