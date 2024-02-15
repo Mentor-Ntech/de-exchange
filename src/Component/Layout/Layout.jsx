@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import Navbar from "../Navbar/Navbar";
-import Footer from "../footer/Footer";
-
+import Footer from "../Footer/Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -9,9 +9,14 @@ const Layout = ({ children }) => {
       <div className="--pad">
         {children}
       </div>
-      <Footer />
+      <Footer/>
     </>
   );
+};
+
+// Add prop type validation for children
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
 };
 
 export default Layout;
