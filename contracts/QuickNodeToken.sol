@@ -1,22 +1,20 @@
-// SPDX-License-Identifier:MIT
-
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-// ERC20 Token Standard #20 interface
 interface ERC20Interface {
     function totalSupply() external view returns (uint);
 
     function balanceOf(address account) external view returns (uint balance);
 
-    function allowance(
-        address owner,
-        address spender
-    ) external view returns (uint remaining);
-
     function transfer(
         address recipient,
         uint amount
     ) external returns (bool success);
+
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint remaining);
 
     function approve(
         address spender,
@@ -33,9 +31,7 @@ interface ERC20Interface {
     event Approval(address indexed owner, address indexed spender, uint value);
 }
 
-// Actual token contact
-
-abstract contract QuickNodeToken is ERC20Interface {
+contract QuickNodeToken is ERC20Interface {
     string public symbol;
     string public name;
     uint8 public decimals;
@@ -45,32 +41,34 @@ abstract contract QuickNodeToken is ERC20Interface {
     mapping(address => mapping(address => uint)) allowed;
 
     constructor() {
-        symbol = "DLTC";
-        name = "DLTCoin";
+        symbol = "DLT";
+        name = "DLTToken";
         decimals = 18;
         _totalSupply = 1_000_000_000_000_000_000_000_000;
-        balances[0xC50458623520eE0e704Bc63040EF0bb388221D1F] = _totalSupply;
+        balances[0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266] = _totalSupply;
         emit Transfer(
             address(0),
-            0xC50458623520eE0e704Bc63040EF0bb388221D1F,
+            0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266,
             _totalSupply
         );
     }
 
-    function totalSupply() public view returns (uint) {
+    function totalSupply() public view override returns (uint) {
         return _totalSupply - balances[address(0)];
     }
 
-    function balanceOf(address account) public view returns (uint balance) {
+    function balanceOf(
+        address account
+    ) public view override returns (uint balance) {
         return balances[account];
     }
 
     function transfer(
         address recipient,
         uint amount
-    ) public returns (bool success) {
-        balances[msg.sender] = balances[msg.sender] - amount;
-        balances[recipient] = balances[recipient] + amount;
+    ) public override returns (bool success) {
+        balances[msg.sender] -= amount;
+        balances[recipient] += amount;
         emit Transfer(msg.sender, recipient, amount);
         return true;
     }
@@ -78,7 +76,7 @@ abstract contract QuickNodeToken is ERC20Interface {
     function approve(
         address spender,
         uint amount
-    ) public returns (bool success) {
+    ) public override returns (bool success) {
         allowed[msg.sender][spender] = amount;
         emit Approval(msg.sender, spender, amount);
         return true;
@@ -88,10 +86,10 @@ abstract contract QuickNodeToken is ERC20Interface {
         address sender,
         address recipient,
         uint amount
-    ) public returns (bool success) {
-        balances[sender] = balances[sender] - amount;
-        allowed[sender][msg.sender] = allowed[sender][msg.sender] - amount;
-        balances[recipient] = balances[recipient] + amount;
+    ) public override returns (bool success) {
+        balances[sender] -= amount;
+        allowed[sender][msg.sender] -= amount;
+        balances[recipient] += amount;
         emit Transfer(sender, recipient, amount);
         return true;
     }
@@ -99,8 +97,7 @@ abstract contract QuickNodeToken is ERC20Interface {
     function allowance(
         address owner,
         address spender
-    ) public view returns (uint remaining) {
+    ) public view override returns (uint remaining) {
         return allowed[owner][spender];
     }
 }
-

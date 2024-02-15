@@ -1,28 +1,28 @@
-import hre from "hardhat";
+// import hre from 'hardhat';
+
+// async function main() {
+//   const quickNodeToken = await hre.ethers.deployContract('QuickNodeToken');
+//   await quickNodeToken.waitForDeployment();
+//   console.log(`Contract deployed to ${quickNodeToken.target}`);
+// }
+
+// main().catch((error) => {
+//   console.error(error);
+//   process.exit(1);
+// });
 
 
-
-async function deployQuickNodeToken() {
-  const QuickNodeToken = await hre.ethers.deployContract('QuickNodeToken');
-  await QuickNodeToken.waitForDeployment();
-  console.log(`QuickNodeToken deployed to ${QuickNodeToken.target}`);
-}
-
-async function deployAnotherContract() {
-  const SimpleDEX = await hre.ethers.deployContract('SimpleDEX');
-  await SimpleDEX.waitForDeployment();
-  console.log(`AnotherContract deployed to ${SimpleDEX.target}`);
-}
+import hre from 'hardhat';
 
 async function main() {
-  // Deploy QuickNodeToken contract
-  await deployQuickNodeToken();
-
-  // Deploy AnotherContract contract
-  await deployAnotherContract();
+  console.log("deploying...")
+  const swapContract = await hre.ethers.deployContract('SwapContract');
+  await swapContract.waitForDeployment();
+  console.log(`Contract deployed to ${swapContract.target}`);
 }
 
 main().catch((error) => {
   console.error(error);
   process.exit(1);
 });
+
