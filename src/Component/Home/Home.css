@@ -153,4 +153,52 @@
     opacity: 0;
     border-radius: 50%;
   }
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    max-width: 780px;
+}
+
+.iconBox {
+    display: flex;
+    flex-direction: row;
+   align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+   
+}
+
+.iconLink {
+    color: white; 
+    margin-right: 10px; 
+    font-size: 24px; 
+    transition: color 0.3s ease; 
+}
+
+.iconLink:hover {
+    color: #93e193;
+}
+
+.dltDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    /* padding: 1rem; */
+    width: 100%;
+    position: relative;
+    
+}
+
+.dltDetails span {
+    font-weight: 700;
+    font-size: 48px;
+    color: #fff;
+}
+
+.dltDetails p {
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+
 }
