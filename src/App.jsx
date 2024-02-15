@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Home from "./Component/Home/Home";
 import Swap from "./Component/Swap/Swap";
+
 import Layout from "./Component/Layout/Layout";
 
 function App() {
