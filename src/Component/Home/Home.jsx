@@ -22,21 +22,7 @@ const Home = () => {
     </a>
   ));
 
-  // const WORDS = ["Swap", "Earn", "Build"];
 
-  // const Swapper = () => {
-  //   const [count, setCount] = useState(0);
-
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       setCount((prevCount) => (prevCount + 1) % WORDS.length);
-  //     }, 1000);
-
-  //     return () => clearInterval(interval);
-  //   }, []);
-
-  //   return <p style={{ fontSize: "38px" }}>{WORDS[count]}</p>;
-  // };
 
   return (
     <>
@@ -87,7 +73,9 @@ const Home = () => {
           <li></li>
         </ul>
       </div>
-    </>
-  );
-};
+
+</>
+)
+}
+
 export default Home;
