@@ -1,11 +1,15 @@
-import Footer from "./Component/Footer/Footer";  
 
-const App = () => {
+import Home from "./Component/Home/Home";
+function App() {
+ 
+
   return (
     <>
-    <Footer />
+
+      <Home />
+
     </>
-  )
+  );
 }
 
-export default App
+export default App;

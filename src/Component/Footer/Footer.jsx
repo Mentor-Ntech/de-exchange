@@ -1,7 +1,9 @@
+
 import "./Footer.css";
 import { CiFacebook } from "react-icons/ci";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+
 
 const headerFoot = () => {
   return (
@@ -46,10 +48,4 @@ const headerFoot = () => {
 
 export default headerFoot;
 
-// const Footer = () => {
-//   return (
 
-//   );
-// };
-
-// export default Footer;
