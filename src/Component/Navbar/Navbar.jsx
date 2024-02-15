@@ -1,8 +1,28 @@
-import './Navbar.css'
-const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+import "./Navbar.css";
 
-export default Navbar
+import { Link, useNavigate } from "react-router-dom";
+
+
+const Navbar = () => {
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    navigate("/");
+  };
+
+  return (
+    <header className="header">
+      <nav>
+        <div className="logo" onClick={goHome}>
+          <img src="/src/assets/DLT-Africa.png" />
+        </div>
+
+        <Link to="/">Swap</Link>
+
+        <button>Connect Wallet</button>
+      </nav>
+    </header>
+  );
+};
+
+export default Navbar;
