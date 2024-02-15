@@ -11,6 +11,9 @@ function App() {
         <Route path="/" element={<Layout>
           <Home/>
         </Layout>} />
+        <Route path="/swap" element={<Layout>
+          <Swap/>
+        </Layout>} />
       </Routes>
     </>
   );
