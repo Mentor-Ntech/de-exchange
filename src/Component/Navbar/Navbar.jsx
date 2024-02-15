@@ -21,6 +21,7 @@ const Navbar = () => {
         </div>
 
         <div className='navText'>
+
           <Link style={{textDecoration: 'none'}} to="swap">
             <p>Swap</p>
           </Link>
@@ -29,6 +30,7 @@ const Navbar = () => {
         <button>Connect Wallet</button>
       </nav>
     </header>
+
   );
 };
 
