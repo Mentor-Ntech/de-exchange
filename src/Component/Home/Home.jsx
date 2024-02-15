@@ -1,62 +1,76 @@
+// import { useEffect, useState } from "react";
 import "./Home.css";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 
 const Home = () => {
-  
   const community = [
-    { icon: <FaDiscord />, url: 'https://discord.com' },
-    { icon: <FaTwitter />, url: 'https://twitter.com/dltAfrica' },
-    { icon: <FaGithub />, url: 'https://github.com/info@dltafrica.io' },
-  ]
+    { icon: <FaDiscord />, url: "https://discord.com" },
+    { icon: <FaTwitter />, url: "https://twitter.com/dltAfrica" },
+    { icon: <FaGithub />, url: "https://github.com/info@dltafrica.io" },
+  ];
 
   // Using the map method to generate JSX for each item in the community array
- const communityLinks = community.map((item, index) => (
-  <a key={index} href={item.url} target="_blank" rel="noopener noreferrer" className='iconLink'>
-    {item.icon}
-  </a>
-));
+  const communityLinks = community.map((item, index) => (
+    <a
+      key={index}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="iconLink"
+    >
+      {item.icon}
+    </a>
+  ));
 
+  // const WORDS = ["Swap", "Earn", "Build"];
+
+  // const Swapper = () => {
+  //   const [count, setCount] = useState(0);
+
+  //   useEffect(() => {
+  //     const interval = setInterval(() => {
+  //       setCount((prevCount) => (prevCount + 1) % WORDS.length);
+  //     }, 1000);
+
+  //     return () => clearInterval(interval);
+  //   }, []);
+
+  //   return <p style={{ fontSize: "38px" }}>{WORDS[count]}</p>;
+  // };
 
   return (
     <>
-
-
       <div className="context">
+        <div className="heroBox">
+          <div className="heroText">
+            <h1>
+              {" "}
+              DLT COIN
+              <span> PROTOCOL</span>
+            </h1>
+              <p>Swap, Earn and Build on the leading decentralized crypto trading protocol.</p>
+          </div>
+          <div className="iconBox">{communityLinks}</div>
 
-     <div className='heroBox'>
-       <div className='heroText'>
-        <h1> <span>DLTCOIN</span> PROTOCOL</h1>
-        <p>Swap, earn, and build on the leading decentralized crypto trading protocol.</p>
-       </div>
-       <div className='iconBox'>
-         {communityLinks}
-       </div>
-
-       <div className="dltDetails">
-          <div  className='dltCoin'>
-            <span>
-              $
-              {/* a */}
-             1B
-             {/* b */}
-             +
-            </span>
-            <p>Trade Volume</p>
+          <div className="dltDetails">
+            <div className="dltCoin">
+              <span>
+                ${/* a */}
+                1B
+                {/* b */}+
+              </span>
+              <p>Trade Volume</p>
+            </div>
+            <div className="usdtCoin">
+              <span>$1B+</span>
+              <p>All Trade</p>
+            </div>
+            <div className="udcCoin">
+              <span>5+</span>
+              <p>Community delegate</p>
+            </div>
           </div>
-          <div className='usdtCoin'>
-          <span>
-              $1B+
-            </span>
-            <p>All Trade</p>
-          </div>
-          <div className='udcCoin'>
-          <span>
-              5+
-            </span>
-            <p>Community delegate</p>
-          </div>
-       </div>
-    </div>
+        </div>
       </div>
 
       <div className="area">
@@ -73,7 +87,7 @@ const Home = () => {
           <li></li>
         </ul>
       </div>
-</>
-);
-
+    </>
+  );
+};
 export default Home;
