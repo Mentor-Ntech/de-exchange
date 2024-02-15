@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaArrowDown } from "react-icons/fa";
 import './Swap.css';
 
@@ -33,7 +32,7 @@ const Swap = () => {
           </section>
           <p style={{marginLeft: "10px", marginTop: '7px'}}>$....</p>
         </div>
-        <button>Connect Wallet</button>
+        <button className="button">Connect Wallet</button>
       </div>
 
 

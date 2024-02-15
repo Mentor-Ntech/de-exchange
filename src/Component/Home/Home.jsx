@@ -1,4 +1,3 @@
-// import { useEffect, useState } from "react";
 import "./Home.css";
 import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 
@@ -22,8 +21,6 @@ const Home = () => {
     </a>
   ));
 
-
-
   return (
     <>
       <div className="context">
@@ -34,7 +31,10 @@ const Home = () => {
               DLT COIN
               <span> PROTOCOL</span>
             </h1>
-              <p>Swap, Earn and Build on the leading decentralized crypto trading protocol.</p>
+            <p>
+              Swap, Earn and Build on the leading decentralized crypto trading
+              protocol.
+            </p>
           </div>
           <div className="iconBox">{communityLinks}</div>
 
@@ -73,9 +73,8 @@ const Home = () => {
           <li></li>
         </ul>
       </div>
-
-</>
-)
-}
+    </>
+  );
+};
 
 export default Home;

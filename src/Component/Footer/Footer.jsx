@@ -5,7 +5,7 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 
-const headerFoot = () => {
+const Footer = () => {
   return (
     <div className="headerFoot">
       <section className="mailing">
@@ -46,6 +46,6 @@ const headerFoot = () => {
   );
 };
 
-export default headerFoot;
+export default Footer;
 
 
