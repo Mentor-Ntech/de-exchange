@@ -1,6 +1,21 @@
 import './Home.css'
 import { FaDiscord, FaGithub, FaTwitter  } from "react-icons/fa";
+
 const Home  = () => {
+
+
+  const community = [
+    { icon: <FaDiscord />, url: 'https://discord.com' },
+    { icon: <FaTwitter />, url: 'https://twitter.com/dltAfrica' },
+    { icon: <FaGithub />, url: 'https://github.com/info@dltafrica.io' },
+  ]
+
+  // Using the map method to generate JSX for each item in the community array
+ const communityLinks = community.map((item, index) => (
+  <a key={index} href={item.url} target="_blank" rel="noopener noreferrer" className='iconLink'>
+    {item.icon}
+  </a>
+));
   return (
     <>
     <div className='heroBox'>
@@ -9,9 +24,32 @@ const Home  = () => {
         <p>Swap, earn, and build on the leading decentralized crypto trading protocol.</p>
        </div>
        <div className='iconBox'>
-         <FaDiscord />
-         <FaGithub />
-         <FaTwitter />
+         {communityLinks}
+       </div>
+
+       <div className="dltDetails">
+          <div  className='dltCoin'>
+            <span>
+              $
+              {/* a */}
+             1B
+             {/* b */}
+             +
+            </span>
+            <p>Trade Volume</p>
+          </div>
+          <div className='usdtCoin'>
+          <span>
+              $1B+
+            </span>
+            <p>All Trade</p>
+          </div>
+          <div className='udcCoin'>
+          <span>
+              5+
+            </span>
+            <p>Community delegate</p>
+          </div>
        </div>
     </div>
     </>
