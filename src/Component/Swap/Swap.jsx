@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaArrowDown } from "react-icons/fa";
 import './Swap.css';
 
@@ -33,7 +32,8 @@ const Swap = () => {
           </section>
           <p className='--swap-amount'>$....</p>
         </div>
-        <button className='button'>Connect Wallet</button>
+        <button className="button">Connect Wallet</button>
+
       </div>
 
 
