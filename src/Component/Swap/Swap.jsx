@@ -16,10 +16,10 @@ const Swap = () => {
               <option value="dltToken">DLT TOKEN</option>
             </select>
           </section>
-          <p style={{marginLeft: "10px"}}>$....</p>
+          <p className='--swap-amount'>$....</p>
         </div>
 
-        <h1 className='--flex'><FaArrowDown size={25} /></h1>
+        <h1 className='--flex'><FaArrowDown size={25} style={{marginLeft: '12px'}} /></h1>
 
         <div className='--swap-page-two'>
           <h1 style={{marginLeft: "10px", paddingTop: "10px"}}>You Receive</h1>
@@ -31,26 +31,25 @@ const Swap = () => {
               <option value="dltToken">USDC</option>
             </select>
           </section>
-          <p style={{marginLeft: "10px", marginTop: '7px'}}>$....</p>
+          <p className='--swap-amount'>$....</p>
         </div>
-        <button>Connect Wallet</button>
+        <button className='button'>Connect Wallet</button>
       </div>
 
 
-      <div>
-        <div id="background-wrap">
-          <div className="bubble x1"></div>
-          <div className="bubble x2"></div>
-          <div className="bubble x3"></div>
-          <div className="bubble x4"></div>
-          <div className="bubble x5"></div>
-          <div className="bubble x6"></div>
-          <div className="bubble x7"></div>
-          <div className="bubble x8"></div>
-          <div className="bubble x9"></div>
-          <div className="bubble x10"></div>
-        </div>    
-      </div>
+    
+      <div id="background-wrap">
+        <div className="bubble x1"></div>
+        <div className="bubble x2"></div>
+        <div className="bubble x3"></div>
+        <div className="bubble x4"></div>
+        <div className="bubble x5"></div>
+        <div className="bubble x6"></div>
+        <div className="bubble x7"></div>
+        <div className="bubble x8"></div>
+        <div className="bubble x9"></div>
+        <div className="bubble x10"></div>
+      </div>    
     </div>
   )
 }
