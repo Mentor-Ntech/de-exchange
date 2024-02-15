@@ -1,7 +1,7 @@
 
 import "./Footer.css";
 import { CiFacebook } from "react-icons/ci";
-import { FaTwitter } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 
 
@@ -10,23 +10,29 @@ const Footer = () => {
     <div className="headerFoot">
       <section className="mailing">
       <h1>
-        Start making the world safer, Join the Movement.
+        Start making the world safer, <br /> Join the Movement.
       </h1>
 
-        <button>Join Waitlist😉</button>
+      <button>Join Waitlist&nbsp;😉</button>
       </section>
 
       <div className="footer_box">
         <div className="footer_box_social">
-          <a href="#">
-            <CiFacebook />
-          </a>
-          <a href="#">
-            <FaTwitter />
-          </a>
-          <a href="#">
-            <FaInstagram />
-          </a>
+          <button className="footer_button">
+            <a href="#">
+              <CiFacebook color="blue" />
+            </a>
+          </button>
+          <button className="footer_button">
+            <a href="#">
+              <BsTwitterX color="black" />
+            </a>
+          </button>
+          <button className="footer_button">
+            <a href="#">
+              <FaInstagram color="red" />
+            </a>
+          </button>
 
         </div>
 

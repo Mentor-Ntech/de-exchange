@@ -1,6 +1,9 @@
-import "./Navbar.css";
+
+import './Navbar.css'
+import imgLogo from '../../assets/DLT-Africa.png';
 
 import { Link, useNavigate } from "react-router-dom";
+
 
 
 const Navbar = () => {
@@ -17,11 +20,17 @@ const Navbar = () => {
           <img src="/src/assets/DLT-Africa.png" />
         </div>
 
-        <Link to="/swap">Swap</Link>
+        <div className='navText'>
+
+          <Link style={{textDecoration: 'none'}} to="swap">
+            <p>Swap</p>
+          </Link>
+
 
         <button>Connect Wallet</button>
       </nav>
     </header>
+
   );
 };
 
