@@ -17,7 +17,7 @@ const Navbar = () => {
           <img src="/src/assets/DLT-Africa.png" />
         </div>
 
-        <Link to="/">Swap</Link>
+        <Link to="/swap">Swap</Link>
 
         <button>Connect Wallet</button>
       </nav>
