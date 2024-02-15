@@ -1,22 +1,17 @@
-import PropTypes from 'prop-types';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
+// eslint-disable-next-line react/prop-types
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div className="--pad">
+      <div className="" style={{ minHeight: "80vh" }}>
         {children}
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
-};
-
-// Add prop type validation for children
-Layout.propTypes = {
-  children: PropTypes.node.isRequired
 };
 
 export default Layout;
