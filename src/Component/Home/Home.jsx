@@ -1,9 +1,8 @@
-import './Home.css'
-import { FaDiscord, FaGithub, FaTwitter  } from "react-icons/fa";
+import "./Home.css";
+import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
 
-const Home  = () => {
-
-
+const Home = () => {
+  
   const community = [
     { icon: <FaDiscord />, url: 'https://discord.com' },
     { icon: <FaTwitter />, url: 'https://twitter.com/dltAfrica' },
@@ -16,9 +15,15 @@ const Home  = () => {
     {item.icon}
   </a>
 ));
+
+
   return (
     <>
-    <div className='heroBox'>
+
+
+      <div className="context">
+
+     <div className='heroBox'>
        <div className='heroText'>
         <h1> <span>DLTCOIN</span> PROTOCOL</h1>
         <p>Swap, earn, and build on the leading decentralized crypto trading protocol.</p>
@@ -52,8 +57,23 @@ const Home  = () => {
           </div>
        </div>
     </div>
-    </>
-  )
-}
+      </div>
 
-export default Home
+      <div className="area">
+        <ul className="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+</>
+);
+
+export default Home;
