@@ -1,4 +1,3 @@
-
 import { Route, Routes } from "react-router-dom";
 
 import Home from "./Component/Home/Home";
@@ -10,9 +9,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout>
           <Home/>
-        </Layout>} />
-        <Route path="/swap" element={<Layout>
-          <Swap/>
         </Layout>} />
       </Routes>
     </>
