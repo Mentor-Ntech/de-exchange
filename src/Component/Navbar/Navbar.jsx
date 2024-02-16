@@ -1,36 +1,22 @@
-
+import { Link } from "react-router-dom";
 import './Navbar.css'
-import imgLogo from '../../assets/DLT-Africa.png';
-
-import { Link, useNavigate } from "react-router-dom";
-
-
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
-  const goHome = () => {
-    navigate("/");
-  };
-
   return (
-    <header className="header">
-      <nav>
-        <div className="logo" onClick={goHome}>
+    <nav>
+      <header className="header">
+        <Link to="/">
           <img src="/src/assets/DLT-Africa.png" />
+        </Link>
+
+        
+        <div className="--flex-dir-column">
+        <Link to='/swap' className="--btn --btn-secondary">Swap</Link>
+        {/* <button className="--btn --btn-primary">Connect</button> */}
+
         </div>
-
-        <div className='navText'>
-
-          <Link style={{textDecoration: 'none'}} to="swap">
-            <p>Swap</p>
-          </Link>
-
-
-        <button>Connect Wallet</button>
-      </nav>
-    </header>
-
+      </header>
+    </nav>
   );
 };
 

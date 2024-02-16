@@ -1,78 +1,44 @@
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import "./Home.css";
-import { FaDiscord, FaGithub, FaTwitter } from "react-icons/fa";
+import Metric from "../Metric/Metric";
+import { BsTwitterX, BsGithub, BsDiscord } from "react-icons/bs";
 
 const Home = () => {
-  const community = [
-    { icon: <FaDiscord />, url: "https://discord.com" },
-    { icon: <FaTwitter />, url: "https://twitter.com/dltAfrica" },
-    { icon: <FaGithub />, url: "https://github.com/info@dltafrica.io" },
-  ];
-
-  // Using the map method to generate JSX for each item in the community array
-  const communityLinks = community.map((item, index) => (
-    <a
-      key={index}
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="iconLink"
-    >
-      {item.icon}
-    </a>
-  ));
-
   return (
     <>
-      <div className="context">
-        <div className="heroBox">
-          <div className="heroText">
-            <h1>
-              {" "}
-              DLT COIN
-              <span> PROTOCOL</span>
-            </h1>
-            <p>
-              Swap, Earn and Build on the leading decentralized crypto trading
-              protocol.
-            </p>
-          </div>
-          <div className="iconBox">{communityLinks}</div>
+      <Navbar />
 
-          <div className="dltDetails">
-            <div className="dltCoin">
-              <span>
-                ${/* a */}
-                1B
-                {/* b */}+
-              </span>
-              <p>Trade Volume</p>
-            </div>
-            <div className="usdtCoin">
-              <span>$1B+</span>
-              <p>All Trade</p>
-            </div>
-            <div className="udcCoin">
-              <span>5+</span>
-              <p>Community delegate</p>
-            </div>
+      <section className="hero">
+        <div className="particles"></div>
+        <div className="hero-text">
+          <h2>
+            DLT COIN <span>PROTOCOL</span>
+          </h2>
+          <p>
+            Swap and earn on the leading decentralized crypto trading
+            protocol.
+          </p>
+
+          <div className="--flex-dir-column">
+            <Link to="/">
+              <BsTwitterX />
+            </Link>
+            <Link to="">
+            <BsGithub />
+
+            </Link>
+            <Link to="">
+            <BsDiscord />
+
+            </Link>
           </div>
         </div>
-      </div>
+      </section>
+      <Metric />
 
-      <div className="area">
-        <ul className="circles">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
+      <Footer/>
     </>
   );
 };
