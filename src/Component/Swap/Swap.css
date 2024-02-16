@@ -9,6 +9,7 @@ body {
 }
 .--swap-headerOne {
     font-size: 3rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -19,29 +20,36 @@ body {
     left: 20rem;
     border-radius: 25px;
     width: 40rem;
-    height: 25rem;
+    height: 28rem;
 }
 
 .--swap-page-one {
     background-color: rgba(0, 0, 0, 0.31);
     color: black;
-    margin-top: -20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     position: relative;
-    width: 40rem;
+    width: 38.7rem;
     height: 10rem;
 }
 
 .--swap-section-one {
     display: flex;
+    margin-top: 1rem;
     justify-content: space-around;
-    gap: 10rem;
+    gap: 8rem;
+}
+
+.--swap-amount {
+    margin-left: 15px;
+    margin-top: 25px;
 }
 
 .--swap-section-two {
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
-    gap: 6rem;
+    gap: 4rem;
 }
 
 input {
@@ -77,9 +85,9 @@ input::-webkit-inner-spin-button {
     background-color: rgba(0, 0, 0, 0.31);
     color: black;
     border-radius: 20px;
-    width: 40rem;
+    width: 38.7rem;
     height: 10rem;
-    margin-top: -14px;
+    /* margin-top: -14px; */
 }
 
 .--flex {
@@ -88,14 +96,15 @@ input::-webkit-inner-spin-button {
     border: 5px solid white;
     border-radius: 20px;
     background-color: black;
-    width: 50px;
+    width: 60px;
+    height: 50px;
     position: absolute;
     font-size: 40px;
-    left: 19rem;
-    margin-top: -25px;  
+    left: 17.9rem;
+    margin-top: -35px;  
 }
 
-button {
+.button {
     width: 100%;
     margin-top: 1rem;
     padding: 10px;

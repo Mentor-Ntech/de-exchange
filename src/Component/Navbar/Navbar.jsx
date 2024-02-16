@@ -1,5 +1,6 @@
 import './Navbar.css'
 import imgLogo from '../../assets/DLT-Africa.png'
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   // const logo = imgLogo
   return (
@@ -9,7 +10,9 @@ const Navbar = () => {
           <img className="imgLogo" src={imgLogo} alt="" />
         </div>
         <div className='navText'>
-          <p >Swap</p>
+          <Link style={{textDecoration: 'none'}} to="swap">
+            <p>Swap</p>
+          </Link>
 
         </div>
         <div>
