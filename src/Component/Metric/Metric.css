@@ -1,0 +1,15 @@
+.metric {
+  text-align: center;
+  gap: 10rem;
+  flex-wrap: wrap;
+  margin: 3rem 0;
+  padding: 2rem;
+}
+
+.metric > div h1 {
+  font-size: 30px;
+}
+
+.metric > div p {
+  font-size: 20px;
+}

@@ -1,57 +1,24 @@
-
-import "./Footer.css";
-import { CiFacebook } from "react-icons/ci";
-import { BsTwitterX } from "react-icons/bs";
-import { FaInstagram } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
+import WaitList from "../WaitList/WaitList";
 
 const Footer = () => {
+  const updatedYear = new Date().getFullYear();
   return (
-    <div className="headerFoot">
-      <section className="mailing">
-      <h1>
-        Start making the world safer, <br /> Join the Movement.
-      </h1>
-
-      <button>Join Waitlist&nbsp;😉</button>
-      </section>
-
-      <div className="footer_box">
-        <div className="footer_box_social">
-          <button className="footer_button">
-            <a href="#">
-              <CiFacebook color="blue" />
-            </a>
-          </button>
-          <button className="footer_button">
-            <a href="#">
-              <BsTwitterX color="black" />
-            </a>
-          </button>
-          <button className="footer_button">
-            <a href="#">
-              <FaInstagram color="red" />
-            </a>
-          </button>
-
+    <>
+      <WaitList/>
+      <hr style={{width: "100%"}}/>
+      <footer style={{ padding: "4rem" }}>
+        <div className="--flex-between">
+          <p>All Right Reserved DLT COIN PROTOCOL || &copy; {updatedYear}</p>
+          <div className="--flex-between" style={{ gap: "10px" }}>
+            <Link to="/">Privacy</Link>
+            <Link to="/">Terms</Link>
+            <Link to="/">Email Us</Link>
+          </div>
         </div>
-
-        <div className="footer_box_text">
-        <div className="footer_box_Privacy">
-            <h3>Privacy</h3>
-          </div>
-          <div className="footer_box_Terms">
-            <h3>Terms</h3>
-          </div>
-          <div className="footer_box_EmailUs">
-            <h3>Email Us</h3>
-          </div>
-      </div>
-        </div>
-    </div>
+      </footer>
+    </>
   );
 };
 
 export default Footer;
-
-
